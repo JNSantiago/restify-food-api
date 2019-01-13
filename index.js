@@ -14,7 +14,6 @@ server.use(restifyPlugins.queryParser({ mapParams: true }));
 server.use(restifyPlugins.fullResponse());
 
 server.listen(config.port, () => {
-	// establish connection to mongodb
 	mongoose.Promise = global.Promise;
 	mongoose.connect(config.db.uri);
 
