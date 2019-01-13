@@ -2,6 +2,7 @@ const config = require('./config')
 const restify = require('restify')
 const mongoose = require('mongoose')
 const restifyPlugins = require('restify-plugins')
+const path = require('path')
 
 const server = restify.createServer({
 	name: config.name,
@@ -25,7 +26,7 @@ server.listen(config.port, () => {
 	});
 
 	db.once('open', () => {
-	    require('./routes')(server);
+		require('./routes')(server, path.join(__dirname, './routes'))
 	    console.log(`Server is listening on port ${config.port}`);
 	});
 });
