@@ -9,7 +9,7 @@ const server = restify.createServer({
 	version: config.version,
 })
 
-server.use(restifyPlugins.jsonBodyParser({ mapParams: true }));
+server.use(restifyPlugins.jsonBodyParser({ mapParams: false }));
 server.use(restifyPlugins.acceptParser(server.acceptable));
 server.use(restifyPlugins.queryParser({ mapParams: true }));
 server.use(restifyPlugins.fullResponse());
